@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import re
 lethargy = ('\n\n\n')
 front = 'https://www.imdb.com/'
-review = 'reviews/?ref_=tt_ql_urv'
+review = 'reviews?spoiler=hide '
 seasons = [str(i) for i in range(1, 4)]
 text = ''
 index = 1
