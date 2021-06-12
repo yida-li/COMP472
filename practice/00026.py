@@ -1,5 +1,5 @@
 ####################################################
-# 25. : Harvester X Extraction
+# 26. : Harvester X Extraction
 ####################################################
 from warnings import warn
 from time import time
@@ -75,4 +75,4 @@ movie_ratings = movie_ratings[['movie', 'year', 'imdb', 'metascore', 'votes']]
 # conversion
 movie_ratings.loc[:, 'year'] = movie_ratings['year'].str[-5:-1].astype(int)
 # storage
-movie_ratings.to_csv('data_set.csv')
+movie_ratings.to_csv('practice_data_set.csv')
