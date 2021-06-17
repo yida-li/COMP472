@@ -9,7 +9,7 @@ from playsound import playsound
 
 def playmusic():
 
-    playsound('reveries.mp3')
+    playsound('practice/practice_music.mp3')
 
 
 def Bernard():
