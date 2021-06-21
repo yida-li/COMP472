@@ -320,8 +320,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -689,8 +691,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -769,8 +773,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -848,8 +854,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1162,8 +1170,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1243,8 +1253,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1325,8 +1337,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1407,8 +1421,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1496,8 +1512,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -1578,8 +1596,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2002,8 +2022,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2084,8 +2106,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2165,8 +2189,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2247,8 +2273,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2329,8 +2357,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word
@@ -2411,8 +2441,10 @@ def Analysis():
             result = re.sub(r'[^A-Za-z]', ' ', Text)
             f1 = result.lower().split()
 
-            ProbabilityForTruth = math.log10(75/(75+115))
-            ProbabilityForFalse = math.log10(115/(75+115))
+            ProbabilityForTruth = math.log10(
+                halfPositive/(halfPositive+halfNegative))
+            ProbabilityForFalse = math.log10(
+                halfNegative/(halfPositive+halfNegative))
 
             #
             # format of model2.json for each word

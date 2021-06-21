@@ -478,7 +478,8 @@ def algorithm(grid, start, Destination):
                 # g_scoreD[i]=
                 g_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER
                 f_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER + \
-                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos())     # heuristic
+                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos()) + \
+                    INDEXNEIGHBOR.Price    # heuristic
 
                 if INDEXNEIGHBOR not in open_set_hash:  # look inside queue and add a count
                     count += 1
@@ -551,7 +552,8 @@ def algorithm1(grid, start, Destination):
                 # g_scoreD[i]=
                 g_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER
                 f_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER + \
-                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos())     # heuristic
+                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos()) + \
+                    INDEXNEIGHBOR.Price    # heuristic
 
                 if INDEXNEIGHBOR not in open_set_hash:  # look inside queue and add a count
                     count += 1
@@ -609,7 +611,8 @@ def algorithm2(grid, start, Destination):
                 # g_scoreD[i]=
                 g_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER
                 f_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER + \
-                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos())     # heuristic
+                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos()) + \
+                    INDEXNEIGHBOR.Price    # heuristic
 
                 if INDEXNEIGHBOR not in open_set_hash:  # look inside queue and add a count
                     count += 1
@@ -667,7 +670,8 @@ def algorithm3(grid, start, Destination):
                 # g_scoreD[i]=
                 g_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER
                 f_scoreDictionary[INDEXNEIGHBOR] = tempSCORETRACKER + \
-                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos())     # heuristic
+                    h(INDEXNEIGHBOR.get_pos(), Destination.get_pos()) + \
+                    INDEXNEIGHBOR.Price    # heuristic
 
                 if INDEXNEIGHBOR not in open_set_hash:  # look inside queue and add a count
                     count += 1
