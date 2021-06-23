@@ -19,3 +19,5 @@ Artificial Intelligence
 > > > > > ![til](project2/rehoboam.PNG)
 
 > > > > > ![til](project2/instructions.PNG)
+
+# note : repo made public because of copyright issues, i.e all my classmates copying my codes
