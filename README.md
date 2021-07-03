@@ -20,7 +20,7 @@ Artificial Intelligence
 
 > > > > > ![til](project2/instructions.PNG)
 
-> > # [Emotion Recognition](https://github.com/yida-li/COMP472/tree/master/project2)
+> > # [Emotion Recognition](https://github.com/yida-li/COMP472/tree/master/project3)
 
 > > > Algorithm : [Haar Cascades Classifier](https://github.com/opencv/opencv/tree/master/data/haarcascades)
 
