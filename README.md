@@ -26,7 +26,7 @@ Artificial Intelligence
 
 > > > Pre-existing testing Dataset using : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
 
-> > > > > ![til](project3/recognizer/PNG)
+> > > > > ![til](project3/recognizer.PNG)
 
 
 
