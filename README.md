@@ -24,7 +24,9 @@ Artificial Intelligence
 
 > > > Algorithm : [Haar Cascades Classifier](https://github.com/opencv/opencv/tree/master/data/haarcascades)
 
-> > > Pre-existing testing Dataset using : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
+> > > Pre-existing Training Model : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
+
+> > > Data Set : [Facial Expressions](https://www.kaggle.com/jonathanoheix/face-expression-recognition-dataset)
 
 > > > > > ![til](project3/recognizer.PNG)
 
