@@ -20,4 +20,13 @@ Artificial Intelligence
 
 > > > > > ![til](project2/instructions.PNG)
 
-# note : repo made public because of copyright issues, i.e all my classmates copying my codes
+> > # [Emotion Recognition](https://github.com/yida-li/COMP472/tree/master/project2)
+
+> > > Algorithm : [Haar Cascades Classifier](https://github.com/opencv/opencv/tree/master/data/haarcascades)
+
+> > > Pre-existing testing Dataset using : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
+
+> > > > > ![til](project3/recognizer/PNG)
+
+
+
