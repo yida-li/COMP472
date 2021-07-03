@@ -20,15 +20,17 @@ Artificial Intelligence
 
 > > > > > ![til](project2/instructions.PNG)
 
-> > # [Emotion Recognition](https://github.com/yida-li/COMP472/tree/master/project3)
+> > # [Emotion/Face Recognition](https://github.com/yida-li/COMP472/tree/master/project3)
 
 > > > Algorithm : [Haar Cascades Classifier](https://github.com/opencv/opencv/tree/master/data/haarcascades)
 
 > > > Pre-existing Training Model : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
 
-> > > Data Set : [Facial Expressions](https://www.kaggle.com/jonathanoheix/face-expression-recognition-dataset)
+> > > Emotions Data Set : [Facial Expressions](https://www.kaggle.com/jonathanoheix/face-expression-recognition-dataset)
+
+> > > Face Date Set : me
 
 > > > > > ![til](project3/recognizer.PNG)
 
-
+> > > > > ![til](project3/identifier.png)
 
