@@ -28,7 +28,7 @@ Artificial Intelligence
 
 > > > Emotions Data Set : [Facial Expressions](https://www.kaggle.com/jonathanoheix/face-expression-recognition-dataset)
 
-> > > Face Date Set : me
+> > > Face Date Set : [me](https://github.com/yida-li/COMP472/blob/master/project3/README.md)
 
 > > > > > ![til](project3/recognizer.PNG)
 
