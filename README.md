@@ -36,10 +36,16 @@ Artificial Intelligence
 
 > > # [Object Identification](https://github.com/yida-li/COMP472/tree/master/project4)
 
-> > > Algorithm : [Haar Cascades Classifier](https://github.com/opencv/opencv/tree/master/data/haarcascades)
+> > > Algorithm : [MobileNetV2, ResNet50, InceptionV3 and DenseNet121](https://github.com/OlafenwaMoses/ImageAI)
 
-> > > Pre-existing Training Model : [CNN modeling](https://github.com/akmadan/Emotion_Detection_CNN/blob/main/emotion-classification-cnn-using-keras.ipynb)
+> > > Framework & pre-trained Models : [ImageAi](https://imageai.readthedocs.io/en/latest/detection/index.html)
 
-> > > Emotions Data Set : [Facial Expressions](https://www.kaggle.com/jonathanoheix/face-expression-recognition-dataset)
+> > > Testing Dataset : [phone camera videos]
 
-> > > Face Date Set : [me](https://github.com/yida-li/COMP472/blob/master/project3/README.md)
+> > > > > ![til](project4/sample_analysis.gif)
+
+> > > > > ![til](project4/camera1_analysis.gif)
+
+> > > > > ![til](project4/dataset1_analysis.gif)
+
+> > > > > ![til](project4/dataset2_analysis.gif)
