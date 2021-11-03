@@ -21,8 +21,8 @@ Identifier1 = (50, 146, 168)
 my_favorite_hex = (252, 3, 115)
 Tag = ["yida found"]
 
-while True: 
-    sleep(0.05)    
+while True:
+    sleep(0.05)
     ret, frame = video_capture.read()
     rgb_frame = frame[:, :, ::-1]
     face_locations = fr.face_locations(rgb_frame)
@@ -32,18 +32,16 @@ while True:
 
     for (x, r, y, l), face_encoding in zip(face_locations, face_encodings):
         name = " "
-        matches = fr.compare_faces(known_face_encondings, face_encoding)    
+        matches = fr.compare_faces(known_face_encondings, face_encoding)
         face_distances = fr.face_distance(known_face_encondings, face_encoding)
 
+        matches1 = fr.compare_faces(known_face_encondings1, face_encoding)
+        face_distances1 = fr.face_distance(
+            known_face_encondings1, face_encoding)
 
-        matches1 = fr.compare_faces(known_face_encondings1, face_encoding)    
-        face_distances1 = fr.face_distance(known_face_encondings1, face_encoding)
-
-        matches2 = fr.compare_faces(known_face_encondings2, face_encoding)    
-        face_distances2 = fr.face_distance(known_face_encondings2, face_encoding)
-
-
-
+        matches2 = fr.compare_faces(known_face_encondings2, face_encoding)
+        face_distances2 = fr.face_distance(
+            known_face_encondings2, face_encoding)
 
         best_match_index = np.argmin(face_distances)
         best_match_index1 = np.argmin(face_distances1)
@@ -52,14 +50,16 @@ while True:
         if matches[best_match_index]:
             name = Tag[best_match_index]
         elif matches1[best_match_index1]:
-            name = Tag[best_match_index1] 
+            name = Tag[best_match_index1]
         elif matches2[best_match_index2]:
-            name = Tag[best_match_index1]               
+            name = Tag[best_match_index1]
 
         cv2.rectangle(frame, (l, x), (r, y), Identifier1, 1)
-        cv2.putText(frame, name, (l, x-11), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.0, my_favorite_hex, 1)
+        cv2.putText(frame, name, (l, x-11),
+                    cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.0, my_favorite_hex, 1)
 
-    cv2.imshow('face recognition                                       enter x to exit ', frame)
+    cv2.imshow(
+        'face recognition                                       enter x to exit ', frame)
 
 
 video_capture.release()

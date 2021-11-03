@@ -1,7 +1,7 @@
 from imageai.Detection import VideoObjectDetection
 import os
 from cv2 import cv2
-
+from keras.layers.normalization import BatchNormalization
 execution_path = os.getcwd()
 
 
