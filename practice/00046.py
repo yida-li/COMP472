@@ -3,7 +3,7 @@ import sys
 
 client_host = '0.0.0.0'
 client_port = 8889
-
+#UDP client
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 except socket.error:

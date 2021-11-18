@@ -2,6 +2,11 @@
 
 Artificial Intelligence
 
+# Learn
+
+> > # [Practice](https://github.com/yida-li/Python/tree/master/practice/README.md)
+
+
 # Projects
 
 > > # [Pathfinder game](https://github.com/yida-li/Python/tree/master/project1)
@@ -49,3 +54,19 @@ Artificial Intelligence
 > > > > > ![til](project4/dataset1_analysis.gif)
 
 > > > > > ![til](project4/dataset2_analysis.gif)
+
+> > > > > ![til](project5/path1/phase1_analysis.gif) [Phase1 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase1_data.txt) 
+
+> > > > > ![til](project5/path1/phase2_analysis.gif) [Phase2 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase2_data.txt) 
+
+> > > > > ![til](project5/path1/phase3_analysis.gif) [Phase3 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase3_data.txt) 
+
+> > > > > ![til](project5/path1/phase4_analysis.gif) [Phase4 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase4_data.txt) 
+
+> > > > > ![til](project5/path1/phase5_analysis.gif) [Phase5 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase5_data.txt) 
+
+> > > > > ![til](project5/path1/phase6_analysis.gif) [Phase6 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase6_data.txt) 
+
+> > > > > ![til](project5/path1/phase7_analysis.gif) [Phase7 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase7_data.txt) 
+
+> > > > > ![til](project5/path1/phase8_analysis.gif) [Phase8 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase8_data.txt) 

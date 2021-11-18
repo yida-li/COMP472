@@ -3,7 +3,7 @@ import sys
 
 HOST = '0.0.0.0'
 PORT = 11111
-
+#UDP server
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     print('Socket created')

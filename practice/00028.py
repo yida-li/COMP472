@@ -1,20 +1,15 @@
-####################################################
 # 28. : Sound system
 ####################################################
 
 import multiprocessing
 import sys
-import random
-import time
-
-#from playsound import playsound
+from playsound import playsound
 
 
-#def playmusic():
+def playmusic():
 
- #   playsound('practice/practice_music.mp3')
+    playsound('practice/practice_music.mp3')
 
-layer=[2]
 
 def Bernard():
     # <--- Here's the magic line...you'll need to "import sys" above too
@@ -23,47 +18,31 @@ def Bernard():
         string = input("Enter a string: ")
         print(string)
 
-def random3():
-    layer.insert(random.randint(0, 10))
-    #print(random.randint(0, 10))
-    
-
-def random2():
-    while not layer:
-        temp = layer.pop()
-        if(temp==10):
-            print("temp is equal to 10")
-        elif (temp>=10):
-            print("temp is bigger than 10")
-        elif (temp<=10):
-            print("temp is smaller than 10")
-    #print(random.randint(0, 20))
 
 if __name__ == "__main__":
 
-    while(True):
-        # creating multiple processes
-       
-        proc1 = multiprocessing.Process(target=random2)
+    # creating multiple processes
 
-        proc2 = multiprocessing.Process(target=random3)
+    proc1 = multiprocessing.Process(target=Bernard)
 
-    # Initiating process 1
+    proc2 = multiprocessing.Process(target=playmusic)
 
-        proc1.start()
+# Initiating process 1
 
-    # Initiating process 2
+    proc1.start()
 
-        proc2.start()
+# Initiating process 2
 
-    # Waiting until proc1 finishes
+    proc2.start()
 
-        proc1.join()
+# Waiting until proc1 finishes
 
-    # Waiting until proc2 finishes
+    proc1.join()
 
-        proc2.join()
-        time.sleep(1.0)
-    # Processes finished
-        print(layer)
-        print(" -----------------")
+# Waiting until proc2 finishes
+
+    proc2.join()
+
+# Processes finished
+
+    print(" once you wake up which you wont")

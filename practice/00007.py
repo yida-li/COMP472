@@ -75,5 +75,7 @@ f6 = {'name': 'bicycle', 'percentage_probability': 62.77880668640137,
       'box_points': [1277, 746, 1443, 993]}
 
 f6.pop('percentage_probability')
-
+f6.pop('efef',None) #<--------- will not get an eerror
+#f6.pop('asdasds') <--------- will get an error due to the fact that it doesnt exist
 print(f6)
+print(type(f6))

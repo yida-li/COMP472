@@ -1,6 +1,6 @@
 import socket
 import sys
-
+#tcp server
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server_address = ('localhost', 11001)
@@ -30,3 +30,4 @@ while True:
 
     finally:
         connection.close()
+

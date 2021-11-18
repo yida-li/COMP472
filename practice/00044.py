@@ -1,25 +1,23 @@
 import socket
 import sys
-
+#tcp client
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server_address = ('localhost', 11001)
 print('Connecting to %s port %s' % server_address, file=sys.stderr)
 sock.connect(server_address)
-
 try:
-    message = 'Ping'
-    print('Sending "%s"' % message)
-    sock.sendall(message.encode())
+        while True:
+            message = 'Ping'
+            alert= input("enter something")
+            print('Sending "%s"' % message)
+            sock.sendall(alert.encode())
 
-    amount_received = 0
-    amount_expected = 1000
 
-    while amount_received < amount_expected:
-        data = sock.recv(16)
-        amount_received += len(data)
-        print('Received "%s"' % data, file=sys.stderr)
+            data = sock.recv(16)
+            
+            print('Received "%s"' % data, file=sys.stderr)
 
 finally:
-    print('Closing Socket', file=sys.stderr)
-    sock.close()
+        print('Closing Socket', file=sys.stderr)
+        sock.close()
