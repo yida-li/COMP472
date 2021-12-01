@@ -6,6 +6,9 @@ Artificial Intelligence
 
 > > # [Practice](https://github.com/yida-li/Python/tree/master/practice/README.md)
 
+> > # [Desktop Automation](https://github.com/yida-li/Python/tree/master/project5)
+
+> > # [Network Protocol](https://github.com/yida-li/Python/tree/master/project6)
 
 # Projects
 

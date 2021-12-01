@@ -81,3 +81,14 @@
 
 > > 48: multi threading
 
+> > 49: check if key is pressed
+
+> > 50: create a txt.file 
+
+> > 51: 4 threadings ( 320 project)
+
+> > 52: Multi choice gui
+
+> > 53: String Character Trimming
+
+> > 54: Finding index of a string

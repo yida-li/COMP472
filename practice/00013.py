@@ -6,10 +6,13 @@ import json
 f1 = ('A', 'B', 'C')
 
 print("\nWriting a tuple into file and reading it\n")
-with open('practice/practice.txt', 'w') as f:
+with open('practice/practice.txt', 'a+') as f:
 
     for f1 in f1:
         f.write(f1)
+        f.write('\n')
+
+
 
 
 with open('practice/practice.txt', 'r') as f2:
@@ -44,3 +47,9 @@ with open('practice/practice.json', 'w+') as writer:
 with open('practice/practice.json', 'r+') as reader:
     rereader = json.load(reader)
     print(rereader)
+
+
+with open('practice/practice.txt', 'r+') as f:
+
+    for f1 in f:
+        print(f1)
