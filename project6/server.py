@@ -1,398 +1,383 @@
 import socket
 import sys
 import json
-import threading
-from queue import Queue
+import datetime
 import random
-import logging
-
-logging.basicConfig(filename='logs.txt')
-
 HOST = '0.0.0.0'
-PORT = 3000
-print('Initializing server at port the default UDP PORT: ', PORT)
-print('IP ADDRESS: ', socket.gethostbyname(socket.gethostname()))
+PORT = 11112
+print('Initialiting server at port the default UDP PORT: ',PORT)
+print('IP ADDRESS: ',socket.gethostbyname(socket.gethostname()))
 
-requestNumber = random.randint(0, 40_000)
+
+requestNumber=random.randint(0,40000)
 # check if client_list exists, if not create one with empty dictionary inside
-
-work_queue: Queue = Queue()
-
-
-def send_message_to_client_address(msg: str, client_address: str):
-    encoded_msg = msg.encode()
-    print("Sending to " + str(client_address) + ": " + msg)
-    server_socket.sendto(encoded_msg, client_address)
-
-
-def get_client_list():
-    with open('client_list.json', 'r+') as reader:
-        client_list_checker = json.load(reader)
-    return client_list_checker
-
-
-def save_client_list(client_list_object):
-    with open('client_list.json', 'w') as writer:
-        writer.write(json.dumps(client_list_object))
-
-
-def is_this_a_client(client_address):
-    client_list_checker = get_client_list()
-    for key, values in client_list_checker.items():
-        if str(client_address[0]) == values[0]:
-            return True
-    else:
-        return False
-
-
-def do_actions(data, client_address, request_number):
-
-    print('Command Received from ' + str(client_address) + ": " +
-          data.decode())
-
-    if not data:
-        pass
-
-    is_client = False
-    clientMessage = data.decode()
-    action = clientMessage.split()[0]
-
-    client_list_checker = get_client_list()
-    if client_list_checker:
-        is_client = is_this_a_client(client_address)
-
-    if clientMessage == 'Sending Connection':
-
-        send_message_to_client_address('Connected', client_address)
-
-    elif action == 'REGISTER':
-        messageSplit = clientMessage.split(' - ')
-        name = messageSplit[1]
-        client_list_object = get_client_list()
-        yida = client_list_object
-
-        if name in client_list_object:
-            message = f'REGISTER-DENIED RQ: {request_number}. Reason: {name} already exists'
-            send_message_to_client_address(message,
-                                           client_address=client_address)
-            logging.info(message)
-        else:
-            yida.setdefault(name, [client_address[0], str(client_address[1])])
-
-            message = 'REGISTERED ' + str(request_number)
-            send_message_to_client_address(msg=message,
-                                           client_address=client_address)
-
-            tcp_port = messageSplit[2]
-            yida[name].append(tcp_port)
-            yida[name].append([])
-
-            save_client_list(yida)
-
-            logging.info(f'REGISTERED RQ: {request_number}: {name}')
-
-    elif action == 'SECRET' and is_client:
-
-        tempZinedine(client_address[0], 69)
-    elif action == 'SECRET1' and is_client:
-
-        tempZinedine1(client_address[0], 69)
-
-    elif action == 'DE-REGISTER' and is_client:
-        client_list_object = get_client_list()
-
-        for key, values in client_list_object.items():
-            if str(client_address[0]) == values[0]:
-                client_list_object.pop(key)
-                logging.info(f'DE-REGISTER RQ: {request_number} Name: {key}')
-                message = 'DE-REGISTER RQ: ' + str(
-                    request_number) + ' Name: ' + key
-                send_message_to_client_address(msg=message,
-                                               client_address=client_address)
-                break
-
-        save_client_list(client_list_object)
-
-    elif action == 'PUBLISH' and is_client:
-        client_list_object = get_client_list()
-        publish_checker = False
-        publishMessage = clientMessage.split(' - ')
-
-        for key, values in client_list_object.items():
-            if str(client_address[0]) == values[0]:
-                filename = publishMessage[1]
-                values[3].append(filename)
-                logging.info(
-                    f'PUBLISH RQ : {request_number} Name : {key} file : {filename}'
-                )
-
-                message = f' PUBLISH RQ : {request_number}'
-                send_message_to_client_address(msg=message,
-                                               client_address=client_address)
-
-                publish_checker = True
-                break
-
-        if not publish_checker:
-            message = ' PUBLISH-DENIED RQ : ' + str(request_number)
-            send_message_to_client_address(message, client_address)
-
-        save_client_list(client_list_object)
-
-    elif action == 'REMOVE' and is_client:
-        client_list_object = get_client_list()
-        removeFile = clientMessage.split(' - ')
-        remove_checker = False
-
-        for key, values in client_list_object.items():
-            if str(client_address[0]) == values[0]:
-                filename = removeFile[1]
-                for i in values[3]:
-                    if i == filename:
-                        values[3].remove(i)
-                        logging.info(
-                            f'REMOVE RQ : {request_number} Name : {key} File to removed : {filename}'
-                        )
-                        message = 'REMOVE RQ : ' + str(request_number)
-                        send_message_to_client_address(message, client_address)
-                        request_number = request_number + 1
-                        remove_checker = True
-                        break
-
-        if not remove_checker:
-            message = 'REMOVE-DENIED RQ : ' + str(
-                request_number) + ' REASON : File dont exist'
-            send_message_to_client_address(message, client_address)
-
-        save_client_list(client_list_object)
-
-    elif action == 'RETRIEVE-ALL' and is_client:
-        client_list_object = get_client_list()
-
-        logging.info('RETRIEVE-ALL RQ: ' + str(request_number))
-
-        everyOneInfo = json.dumps(client_list_object)
-        message = 'RETRIEVE RQ: ' + str(request_number) + ' ' + everyOneInfo
-        send_message_to_client_address(message, client_address)
-
-    elif action == 'RETRIEVE-INFOT' and is_client:
-        client_list_object = get_client_list()
-
-        retrieveMessage = clientMessage.split(' - ')
-        name = retrieveMessage[1]
-
-        name_checker = False
-        for key, values in client_list_object.items():
-            if key == name:
-                message = 'RETRIEVE-INFOT RQ: ' + str(request_number) + ' Name: ' + key + ', IP: ' + values[0] + \
-                          ', UDP port: ' + values[1] + ', TCP Port: ' + values[2] + ', List of files available: '
-                for i in values[3]:
-                    message += i
-                    message += ', '
-
-                send_message_to_client_address(message, client_address)
-                name_checker = True
-                break
-
-        if not name_checker:
-            message = 'RETRIEVE-ERROR RQ: ' + str(
-                request_number) + ' Reason : Person does not exist'
-            send_message_to_client_address(message, client_address)
-
-    elif action == 'SEARCH-FILE' and is_client:
-        client_list_object = get_client_list()
-
-        file_checker = False
-        file_info = ''
-        searchFileMessage = clientMessage.split(' - ')
-        filename = searchFileMessage[1]
-
-        logging.info(
-            f'SEARCH-FILE RQ : {request_number} File-name : {filename}')
-
-        for key, values in client_list_object.items():
-            for i in values[3]:
-                if i == filename:
-                    file_info += 'Name: ' + key + ', IP: ' + values[
-                        0] + ', TCP Port: ' + values[2] + '    '
-                    file_checker = True
-
-        if not file_checker:
-            message = ' SEARCH-ERROR RQ : ' + str(
-                request_number) + ' Reason : File does not exist'
-            send_message_to_client_address(message, client_address)
-
-        else:
-            message = 'SEARCH-FILE RQ ' + str(request_number) + ' ' + file_info
-            send_message_to_client_address(message, client_address)
-
-    elif action == 'DOWNLOAD' and is_client:
-
-        downloadMessage = clientMessage.split(' - ')
-        filename = downloadMessage[1]
-        TCP_Address = downloadMessage[2].split(':')
-        client_list_object = get_client_list()
-        file_checker = False
-        for key, values in client_list_object.items():
-            if values[0] == TCP_Address[0] and values[2] == TCP_Address[1]:
-                for i in values[3]:
-                    if i == filename:
-                        file_checker = True
-
-        if not file_checker:
-            message = 'DOWNLOAD-ERROR RQ : ' + str(
-                request_number) + ' Reason : File is not published'
-            send_message_to_client_address(message, client_address)
-        else:
-            message = 'DOWNLOAD'
-            send_message_to_client_address(message, client_address)
-
-    elif action == 'UPDATE' and is_client:
-        client_list_object = get_client_list()
-        updateMessage = clientMessage.split(' - ')
-        update_checker = False
-        for key, values in client_list_object.items():
-
-            if str(client_address[0]) == values[0]:
-                logging.info(
-                    f'UPDATE-CONTACT RQ: {request_number} Name: {key} IP: {values[0]} UDP: {values[1]} TCP: {values[2]}'
-                )
-                username = key  # temp value stored to be used in line 420
-                new_ip = values[0]
-                new_tcp = values[2]
-                new_udp = values[1]
-
-                if not updateMessage[1] == '':
-                    values[0] = updateMessage[1]
-                    new_ip = values[0]
-                if not updateMessage[2] == '':
-                    values[1] = updateMessage[2]
-                    new_udp = values[1]
-                if not updateMessage[3] == '':
-                    values[2] = updateMessage[3]
-                    new_tcp = values[2]
-                update_checker = True
-
-        save_client_list(client_list_object)
-
-        if not update_checker:
-            message = 'UPDATE DENIED RQ: ' + str(
-                request_number) + ' Name: ' + username
-            send_message_to_client_address(message, client_address)
-        else:
-            message = 'UPDATE CONFIRMED RQ: ' + str(
-                request_number
-            ) + ' Name: ' + username + ' IP: ' + new_ip + ' UDP: ' + new_udp + ' TCP:' + new_tcp
-
-            logging.info(
-                f'UPDATE CONFIRMED RQ: {request_number} Name: {username} IP: {new_ip} UDP: {new_udp} TCP: {new_tcp}'
-            )
-        send_message_to_client_address(message, client_address)
-
-    elif not is_client:
-        message = 'You are not a client. Please REGISTER before entering other commands'
-        send_message_to_client_address(message, client_address)
-
-    else:
-        message = 'This request does not exist'
-        send_message_to_client_address(message, client_address)
-
-
-def taskRunner(data_received, request_number):
-    data = data_received[0]
-    client_address = data_received[1]
-
-    logging.info('Received message from ' + str(client_address))
-    work_queue.put((data, client_address, request_number))
-
-
-def action_assigner():
-    while True:
-        if work_queue.qsize() != 0:
-            data, client_address, request_number = work_queue.get()
-            do_actions(data, client_address, request_number)
-
-
-def tempZinedine(host, destination):
-    tempsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        server_address = (host, int(destination))
-        tempsock.connect(server_address)
-        file = open('zidane.jpg', 'rb')
-        image_data = file.read(2048)
-
-        while image_data:
-            tempsock.send(image_data)
-            image_data = file.read(2048)
-    except:
-        print('Sorry you did not get the secret picture')
-        tempsock.close()
-    finally:
-        tempsock.close()
-
-
-def tempZinedine1(host, destination):
-    tempsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        server_address = (host, int(destination))
-        tempsock.connect(server_address)
-        file = open('zizou.jpg', 'rb')
-        image_data = file.read(2048)
-
-        while image_data:
-            tempsock.send(image_data)
-            image_data = file.read(2048)
-    except:
-        print('Sorry you did not get the secret picture')
-        tempsock.close()
-    finally:
-        tempsock.close()
-
-
-def task_putter():
-    request_number = 0
-    while True:
-        data_received = server_socket.recvfrom(1024)
-        request_number += 1
-        taskRunner(data_received, request_number)
-
-
 try:
-    print(get_client_list())
-except FileNotFoundError:
-    logging.info('Creating an empty clientlist')
-    empty_client_list = {}
-    save_client_list(empty_client_list)
+    with open('client_list.json', 'r+') as reader:
+        rereader = json.load(reader)
+        print(rereader)
+    reader.close()
+except:
+    currentTime = datetime.datetime.now()
+    with open('log.txt', 'a+') as logfile:   
+        logfile.write(str(currentTime)+' : Creating an empty clientlist')
+        logfile.write('\n')
+    logfile.close()
+    f6 = {}
+    with open('client_list.json', 'w+') as writer:
+            writer.write(json.dumps(f6))
+    writer.close()
 
 # Initialize socket
 try:
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    logging.info('Sucessfully created socket')
+    serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    print('Socket created')
+    currentTime = datetime.datetime.now()
+    with open('log.txt', 'a+') as logfile:   
+        logfile.write(str(currentTime)+' : Sucessfully created socket')
+        logfile.write('\n')
+    logfile.close() 
 except socket.error as msg:
-    logging.info(
-        f'Failed to created socket. Error code: {msg[0]} Message: {msg[1]}')
+    print('Failed to created socket. Error code :' + str(msg[0]) + ' Message ' + msg[1])
+    currentTime = datetime.datetime.now()
+    with open('log.txt', 'a+') as logfile:   
+        logfile.write(str(currentTime)+' : Failed to initialize socket')
+        logfile.write('\n')
+    logfile.close()    
     sys.exit()
 
 # Initialize bind
 try:
-    server_socket.bind((HOST, PORT))
-    logging.info('Socket bind complete')
-    print('Socket bind complete')
+    serverSocket.bind((HOST, PORT))
+    currentTime = datetime.datetime.now()
+    with open('log.txt', 'a+') as logfile:   
+        logfile.write(str(currentTime)+' : Scoket bind complete')
+        logfile.write('\n')
+    logfile.close()    
+    print ('Socket bind complete')
 except socket.error as msg:
-    print('Bind Failed. Error code: ' + str(msg[0]) + ' Message ' + msg[1])
-    logging.info('Socket bind error')
+    print ('Bind Failed. Error code: ' + str(msg[0]) + ' Message ' + msg[1])
+    currentTime = datetime.datetime.now()
+    with open('log.txt', 'a+') as logfile:   
+        logfile.write(str(currentTime)+' : Socket bind error')
+        logfile.write('\n')
+    logfile.close()
     sys.exit()
 
+
 # Keep receiving data
-try:
-    thread_task = threading.Thread(target=task_putter)
-    action_thread = threading.Thread(target=action_assigner)
+while 1:
 
-    action_thread.start()
-    thread_task.start()
+    data_Received = serverSocket.recvfrom(1024)
+    data = data_Received[0]
+    client_Address = data_Received[1]
 
-    action_thread.join()
-    thread_task.join()
+    # pass everything and wait for new data received in line 45
+    if not data:
+        pass
+    
+    isClient=False    
+    temp = data.decode()
+    with open('client_list.json', 'r+') as reader:
+                    clientlistChcker = json.load(reader)
+    reader.close()
+    
+ 
+    if clientlistChcker: # if it has stuff inside
+        for key, values in clientlistChcker.items():
 
-except Exception as e:
-    server_socket.close()
+                if str(client_Address[0])==values[0]:
+                    isClient=True
+                    break
+            
+                        
+    reader.close()    
+    if temp =='registration':
+        message = 'please enter your username'
+        
+        serverSocket.sendto(message.encode(),client_Address)
+        flag = 0
+        while flag<1:
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                client_Address = data_Received[1]
+                name = data.decode()
+                with open('client_list.json', 'r+') as reader:
+                    clientlistObject = json.load(reader)
+                yida=clientlistObject
+                reader.close()
+                if name in clientlistObject:    
+                    message = 'REGISTER-DENIED RQ : '+str(requestNumber)+' Reason : '+name+' already exist'
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+                    currentTime = datetime.datetime.now()
+                    with open('log.txt', 'a+') as logfile:   
+                        logfile.write(str(currentTime)+' : REGISTER-DENIED RQ : '+str(requestNumber)+' Reason : '+name+' already exist')
+                        logfile.write('\n')
+                    logfile.close()   
+                    requestNumber=requestNumber+1 
+                else:
+                    yida.setdefault(name, [client_Address[0],str(client_Address[1])])
+                
+                    message = 'REGISTERED '+str(requestNumber)
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+                    flag2=0
+                    while flag2<1:
+                        data_Received = serverSocket.recvfrom(1024)
+                        data = data_Received[0]
+                        
+                        tcpport = data.decode()
+                        yida[name].append(tcpport)
+                        yida[name].append([])                        
+                        with open('client_list.json', 'w+') as writer:
+                            writer.write(json.dumps(yida))
+                        writer.close()    
+                        currentTime = datetime.datetime.now()
+                        with open('log.txt', 'a+') as logfile:   
+                            logfile.write(str(currentTime)+' : '+name+' REGISTERED')
+                            logfile.write('\n')
+                        logfile.close()                     
+                        flag2=flag2+1          
+                flag=flag+1 # finish loop
+    elif temp == 'print' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)
+        
+        reader.close()
+        reply = json.dumps(clientlistObject).encode()
+        serverSocket.sendto(reply,client_Address)
+    
+    elif temp == 'RETRIEVE-ALL' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)
+        
+        reader.close()
+        reply = json.dumps(clientlistObject).encode()
+        serverSocket.sendto(reply,client_Address)
+
+    elif temp == 'RETRIEVE-INFOT' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)
+        message = 'enter the name of person you would like info on'
+        reader.close()        
+        reply = message.encode()
+        serverSocket.sendto(reply,client_Address)
+        data_Received = serverSocket.recvfrom(1024)
+        data = data_Received[0]        
+        nameChecker=False        
+        for key, values in clientlistObject.items():
+            if key==data.decode():
+                message='name:'+key+', ip:'+values[0]+', udp port:'+values[1]+', tcp port: '+values[2]+', list of files available : '
+                for i in values[3]:
+                    message+= i
+                    message+= ' '
+                reply=message.encode()
+                serverSocket.sendto(reply,client_Address)
+                nameChecker=True
+                break
+        if nameChecker==False:
+                message='this person does not exist'
+                reply=message.encode()
+                serverSocket.sendto(reply,client_Address)           
+
+
+
+    elif temp == 'Publish' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)        
+        reader.close()
+
+        PublishChecker=False
+
+        for key, values in clientlistObject.items():
+
+            if str(client_Address[0])==values[0]:
+                message = 'enter the name of the file'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                          
+                values[3].append(data.decode())
+                message = 'published'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)
+                PublishChecker=True
+                break
+        if PublishChecker==False:
+                message = 'publish denied'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)  
+        with open('client_list.json', 'w+') as writer:
+            writer.write(json.dumps(clientlistObject))
+        writer.close() 
+
+
+    elif temp == 'Remove' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)        
+        reader.close()
+
+        RemoveChecker=False
+
+        for key, values in clientlistObject.items():
+
+            if str(client_Address[0])==values[0]:
+                message = 'enter the name of the file to remove'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                
+                for i in values[3]:
+
+                        if i == data.decode():
+                            values[3].remove(i)
+                                          
+                
+                            message = 'removed'
+                            reply = message.encode()
+                            serverSocket.sendto(reply,client_Address)
+                            RemoveChecker=True
+                            break               
+        if RemoveChecker==False:
+                message = 'publish denied'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)  
+        with open('client_list.json', 'w+') as writer:
+            writer.write(json.dumps(clientlistObject))
+        writer.close()    
+
+    elif temp == 'SEARCH-FILE' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)        
+        reader.close()
+
+        FileChecker=False
+        fileInfo=''
+        message = 'enter the name of the file to search for'
+        reply = message.encode()
+        serverSocket.sendto(reply,client_Address)
+        data_Received = serverSocket.recvfrom(1024)
+        data = data_Received[0]
+
+
+        for key, values in clientlistObject.items():
+
+                for i in values[3]:
+
+                        if i == data.decode():
+                            
+                            fileInfo+='name:'+key+', ip: '+values[0]+', tcp port: '+values[2]+'    '              
+                
+
+                            FileChecker=True
+                            
+
+
+        if FileChecker==False:
+                message = 'Search-ERROR!'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)
+
+        
+        reply = fileInfo.encode()
+        serverSocket.sendto(reply,client_Address)
+
+
+    elif temp == 'DE-REGISTER' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)        
+        reader.close()
+        
+        for key, values in clientlistObject.items():
+
+            if str(client_Address[0])==values[0]:
+                clientlistObject.pop(key)
+                break
+        with open('client_list.json', 'w+') as writer:
+            writer.write(json.dumps(clientlistObject))
+        writer.close()          
+        message = 'de-registeration'
+        reply = message.encode()
+        serverSocket.sendto(reply,client_Address)
+
+    elif temp == 'UPDATE' and isClient ==True:
+        with open('client_list.json', 'r+') as reader:
+            clientlistObject = json.load(reader)        
+        reader.close()
+        updateChecker=False
+        for key, values in clientlistObject.items():
+
+            if str(client_Address[0])==values[0]:
+                
+                message = 'enter the new ip address, or enter nothing to stay the same'
+                reply = message.encode()
+                serverSocket.sendto(reply,client_Address)
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                if data.decode()=='':
+                    
+                    message = 'ip didnt change enter the new tcp address, or enter nothing to stay the same'
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+                    
+                else:
+                    values[0]=data.decode()                  
+                    updateChecker=True
+                    message = 'ip did changed to'+values[0]+' enter the new tcp address, or enter nothing to stay the same'
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+
+
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                if data.decode()=='':
+                    message = 'tcp didnt change, enter the new tcp address, or enter nothing to stay the same'
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+                else:
+                    updateChecker=True
+                    values[2]=data.decode() 
+                    message = 'tcp did changed to'+values[2]+', enter the new tcp address, or enter nothing to stay the same'
+                    reply = message.encode()
+                    serverSocket.sendto(reply,client_Address)
+
+
+
+                data_Received = serverSocket.recvfrom(1024)
+                data = data_Received[0]
+                if data.decode()=='':
+                    pass
+                    
+                else:
+                    updateChecker=True
+                    values[1]=data.decode()                  
+                    
+
+                  
+
+        with open('client_list.json', 'w+') as writer:
+            writer.write(json.dumps(clientlistObject))
+        writer.close()    
+
+        if updateChecker==False:      
+            message = 'not updated'
+            reply = message.encode()
+            serverSocket.sendto(reply,client_Address)
+        else:
+            message = 'updated'
+            reply = message.encode()
+            serverSocket.sendto(reply,client_Address)              
+
+    elif isClient ==False:
+        message = 'ur not a client'
+        reply = message.encode()
+        serverSocket.sendto(reply,client_Address)
+    else:
+        message = 'useless request, send something else'
+        reply = message.encode()
+        serverSocket.sendto(reply,client_Address)
+    #print('Message[' + client_Address[0] + ':' + str(client_Address[1]) + '] - ' + str(data.strip()))
+    
+serverSocket.close()
