@@ -23,7 +23,7 @@ def login(i,j):
         time.sleep(random.uniform(3.3, 3.780))    
         if check2:
             pyautogui.leftClick(x=357+i,y=291+j,duration=1)
-            pyautogui.typewrite('password',interval=1)
+            pyautogui.typewrite('bait686',interval=1)
             pyautogui.leftClick(x=312+i,y=349+j,duration=1)
             pyautogui.moveTo(random.randint(0,700),random.randint(0,200))
             time.sleep(random.uniform(5.3, 6.780))        
@@ -1014,7 +1014,6 @@ def DoubleMix(x):
 
 
 
-
 def speedclick():
 
     while True:
@@ -1122,14 +1121,13 @@ def bankAll(x,y):
                     random.randint(437, 458)+x,random.randint(333, 349)+y, random.uniform(0.2,0.5))
             pyautogui.click() 
 
-while True:
-    SoloMix(40)
-    checkVPN()
-#SoloMix(500)
-#SoloHybrid()
-#login()n
-#logout()
-#login()speedclick()
-#speedclick()
-#lamda for 2 cordinates
-#DoubleMix(200)
+
+
+# TODO masterpiece
+
+
+#def QuadMix(x):
+
+#def QuadClean(x):
+
+SoloClean(600)
