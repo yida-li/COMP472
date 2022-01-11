@@ -1,6 +1,6 @@
 # Python
 
-Artificial Intelligence
+Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Learning, GUI , GPS 
 
 # Learn
 
@@ -9,6 +9,7 @@ Artificial Intelligence
 > > # [Desktop Automation](https://github.com/yida-li/Python/tree/master/project5)
 
 > > # [Network Protocol](https://github.com/yida-li/Python/tree/master/project6)
+
 
 # Projects
 
@@ -19,6 +20,12 @@ Artificial Intelligence
 > > > > > ![til](project1/screenshot1.PNG)
 
 > > > > > ![til](project1/screenshot2.PNG)
+
+> > # [Calculator](https://github.com/yida-li/Python/tree/master/project8)
+
+> > > > > ![til](project8/s1.png)
+
+> > > > > ![til](project8/s2.png)
 
 > > # [Machine Learning reviews predictions](https://github.com/yida-li/Python/tree/master/project2)
 
