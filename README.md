@@ -23,9 +23,11 @@ Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Lea
 
 > > # [Calculator](https://github.com/yida-li/Python/tree/master/project8)
 
-> > > > > ![til](project8/s1.png)
+> > > > > ![til](project8/z1.png)
 
-> > > > > ![til](project8/s2.png)
+> > > > > ![til](project8/z2.png)
+
+> > > > > ![til](project8/z3.png)
 
 > > # [Machine Learning reviews predictions](https://github.com/yida-li/Python/tree/master/project2)
 
