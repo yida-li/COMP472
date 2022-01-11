@@ -1,0 +1,136 @@
+GPGGA paramters
+0 Timestamp 220311.00
+1 Latitude 
+2 Latitude Direction 
+3 Longitude 
+4 Longitude Direction 
+5 GPS Quality Indicator 0
+6 Number of Satellites in use 00
+7 Horizontal Dilution of Precision 99.99
+8 Antenna Alt above sea level (mean) 
+9 Units of altitude (meters) 
+10 Geoidal Separation 
+11 Units of Geoidal Separation (meters) 
+12 Age of Differential GPS Data (secs) 
+13 Differential Reference Station ID 
+-------------------------------------------------------------------------
+GPGSA paramters
+0 Mode A
+1 Mode fix type 1
+2 SV ID01 
+3 SV ID02 
+4 SV ID03 
+5 SV ID04 
+6 SV ID05 
+7 SV ID06 
+8 SV ID07 
+9 SV ID08 
+10 SV ID09 
+11 SV ID10 
+12 SV ID11 
+13 SV ID12 
+14 PDOP (Dilution of precision) 99.99
+15 HDOP (Horizontal DOP) 99.99
+16 VDOP (Vertical DOP) 99.99
+-------------------------------------------------------------------------
+GPGLL paramters
+0 Latitude 
+1 Latitude Direction 
+2 Longitude 
+3 Longitude Direction 
+4 Timestamp 220311.00
+5 Status V
+6 FAA mode indicator N
+-------------------------------------------------------------------------
+GPRMC paramters
+0 Timestamp 220312.00
+1 Status V
+2 Latitude 
+3 Latitude Direction 
+4 Longitude 
+5 Longitude Direction 
+6 Speed Over Ground 
+7 True Course 
+8 Datestamp 271221
+9 Magnetic Variation 
+10 Magnetic Variation Direction 
+-------------------------------------------------------------------------
+GPVTG paramters
+0 True Track made good 
+1 True Track made good symbol 
+2 Magnetic Track made good 
+3 Magnetic Track symbol 
+4 Speed over ground knots 
+5 Speed over ground symbol 
+6 Speed over ground kmph 
+7 Speed over ground kmph symbol 
+8 FAA mode indicator N
+-------------------------------------------------------------------------
+GPGGA paramters
+0 Timestamp 220312.00
+1 Latitude 
+2 Latitude Direction 
+3 Longitude 
+4 Longitude Direction 
+5 GPS Quality Indicator 0
+6 Number of Satellites in use 00
+7 Horizontal Dilution of Precision 99.99
+8 Antenna Alt above sea level (mean) 
+9 Units of altitude (meters) 
+10 Geoidal Separation 
+11 Units of Geoidal Separation (meters) 
+12 Age of Differential GPS Data (secs) 
+13 Differential Reference Station ID 
+-------------------------------------------------------------------------
+GPGSA paramters
+0 Mode A
+1 Mode fix type 1
+2 SV ID01 
+3 SV ID02 
+4 SV ID03 
+5 SV ID04 
+6 SV ID05 
+7 SV ID06 
+8 SV ID07 
+9 SV ID08 
+10 SV ID09 
+11 SV ID10 
+12 SV ID11 
+13 SV ID12 
+14 PDOP (Dilution of precision) 99.99
+15 HDOP (Horizontal DOP) 99.99
+16 VDOP (Vertical DOP) 99.99
+-------------------------------------------------------------------------
+GPGLL paramters
+0 Latitude 
+1 Latitude Direction 
+2 Longitude 
+3 Longitude Direction 
+4 Timestamp 220312.00
+5 Status V
+6 FAA mode indicator N
+-------------------------------------------------------------------------
+GPRMC paramters
+0 Timestamp 220313.00
+1 Status V
+2 Latitude 
+3 Latitude Direction 
+4 Longitude 
+5 Longitude Direction 
+6 Speed Over Ground 
+7 True Course 
+8 Datestamp 271221
+9 Magnetic Variation 
+10 Magnetic Variation Direction 
+-------------------------------------------------------------------------
+GPVTG paramters
+0 True Track made good 
+1 True Track made good symbol 
+2 Magnetic Track made good 
+3 Magnetic Track symbol 
+4 Speed over ground knots 
+5 Speed over ground symbol 
+6 Speed over ground kmph 
+7 Speed over ground kmph symbol 
+8 FAA mode indicator N
+-------------------------------------------------------------------------
