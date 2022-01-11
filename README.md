@@ -29,6 +29,8 @@ Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Lea
 
 > > > > > ![til](project8/z3.png)
 
+> > > > > ![til](project8/z4.png)
+
 > > # [Machine Learning reviews predictions](https://github.com/yida-li/Python/tree/master/project2)
 
 > > > Algorithm : Naive Bayes classifier
