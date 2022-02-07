@@ -10,10 +10,14 @@ Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Lea
 
 > > # [Network Protocol](https://github.com/yida-li/Python/tree/master/project6)
 
+> > # [Widget Programming](https://github.com/yida-li/Python/tree/master/project10)
+
 # Projects
 
+> > # [Pathfinder drone](https://github.com/yida-li/Python/tree/master/project5/README.md)
+> >
+> > 
 > > # [Pathfinder game](https://github.com/yida-li/Python/tree/master/project1)
-
 > > > Algorithm : A\* Search
 
 > > > > > ![til](project1/screenshot1.PNG)
@@ -32,7 +36,21 @@ Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Lea
 
 > > > > > ![til](project8/z5.jpg)
 
-> > # [Machine Learning reviews predictions](https://github.com/yida-li/Python/tree/master/project2)
+> > # [Sliding Notebook](https://github.com/yida-li/Python/tree/master/project9)
+
+> > > > > ![til](project9/y1.png)
+
+> > > > > ![til](project9/y2.png)
+
+> > > > > ![til](project9/y3.png)
+
+> > > > > ![til](project9/y4.png)
+
+> > > > > ![til](project9/y5.png)
+
+> > > > > ![til](project9/y6.jpg)
+
+> > # [Machine Learning reviews predictions App](https://github.com/yida-li/Python/tree/master/project2)
 
 > > > Algorithm : Naive Bayes classifier
 
@@ -69,19 +87,3 @@ Searching Algorithms, Network Protocols, Bluetooth, Computer Vision, Machine Lea
 > > > > > ![til](project4/dataset1_analysis.gif)
 
 > > > > > ![til](project4/dataset2_analysis.gif)
-
-> > > > > ![til](project5/path1/phase1_analysis.gif) [Phase1 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase1_data.txt)
-
-> > > > > ![til](project5/path1/phase2_analysis.gif) [Phase2 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase2_data.txt)
-
-> > > > > ![til](project5/path1/phase3_analysis.gif) [Phase3 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase3_data.txt)
-
-> > > > > ![til](project5/path1/phase4_analysis.gif) [Phase4 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase4_data.txt)
-
-> > > > > ![til](project5/path1/phase5_analysis.gif) [Phase5 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase5_data.txt)
-
-> > > > > ![til](project5/path1/phase6_analysis.gif) [Phase6 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase6_data.txt)
-
-> > > > > ![til](project5/path1/phase7_analysis.gif) [Phase7 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase7_data.txt)
-
-> > > > > ![til](project5/path1/phase8_analysis.gif) [Phase8 analysis](https://github.com/yida-li/Python/tree/master/project5/path1/phase8_data.txt)
