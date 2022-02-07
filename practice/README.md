@@ -92,3 +92,5 @@
 > > 53: String Character Trimming
 
 > > 54: Finding index of a string
+
+> > 55: PDF reader into text
