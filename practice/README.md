@@ -94,3 +94,7 @@
 > > 54: Finding index of a string
 
 > > 55: PDF reader into text
+
+> > 56: Split a string by space into lists
+
+> > 57: Check if a file exists in local directory
