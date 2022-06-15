@@ -98,3 +98,9 @@
 > > 56: Split a string by space into lists
 
 > > 57: Check if a file exists in local directory
+
+> > 58: Adding Encryption to a message
+
+> > 59: Checking for repetition of numbers in a decimal
+
+> > 60: Checking for repetition of numbers in an array
