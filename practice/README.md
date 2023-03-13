@@ -108,3 +108,5 @@
 > > 61: Selenium Driver initialization to fetch static html
 
 > > 62: Selenium + Beautiful Soup to fetch dynamic html
+
+> > 63: Random text from openai
