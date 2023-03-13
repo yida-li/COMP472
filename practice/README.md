@@ -104,3 +104,7 @@
 > > 59: Checking for repetition of numbers in a decimal
 
 > > 60: Checking for repetition of numbers in an array
+
+> > 61: Selenium Driver initialization to fetch static html
+
+> > 62: Selenium + Beautiful Soup to fetch dynamic html
