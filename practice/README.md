@@ -110,3 +110,5 @@
 > > 62: Selenium + Beautiful Soup to fetch dynamic html
 
 > > 63: Random text from openai
+
+> > 64: Insert text through GUI from openai and display reply through GUI (chatgpt basically)
