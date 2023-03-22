@@ -3,7 +3,7 @@ import openai
 import pyautogui
 
 
-openai.api_key = "
+openai.api_key = "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"
 
 
 while(True):
