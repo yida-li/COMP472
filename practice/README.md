@@ -112,3 +112,5 @@
 > > 63: Random text from openai
 
 > > 64: Insert text through GUI from openai and display reply through GUI (chatgpt basically)
+
+> > 65: Speed increase running code with GPU
